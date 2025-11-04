@@ -72,11 +72,11 @@ solveButton.addEventListener('click', async () => {
   resultContainer.innerHTML = 'Calculating...';
 
   try {
-    const response = await fetch('http://127.0.0.1:5000/solve', {
-      method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({type, values})
-    });
+    const response = await fetch('/solve', {   // <- relative path
+  method: 'POST',
+  headers: {'Content-Type':'application/json'},
+  body: JSON.stringify({type, values})
+});
     const data = await response.json();
 
     if(data.error){
